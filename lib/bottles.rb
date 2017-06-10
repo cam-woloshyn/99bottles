@@ -13,12 +13,12 @@ class Bottles
         "#{quantity(number).capitalize} #{container(number)} of beer on the wall, " +
         "#{quantity(number)} #{container(number)} of beer.\n" +
         "#{action(number)}" +
-        "99 #{container(number)} of beer on the wall.\n"
+        "#{quantity(successor(number))} #{container(number)} of beer on the wall.\n"
       else
         "#{quantity(number).capitalize} #{container(number)} of beer on the wall, " +
         "#{number} #{container(number)} of beer.\n" +
         "#{action(number)}" +
-        "#{quantity(number - 1)} #{container(number - 1)} of beer on the wall.\n"
+        "#{quantity(successor(number))} #{container(number - 1)} of beer on the wall.\n"
     end
   end
 
@@ -51,6 +51,14 @@ class Bottles
       "Go to the store and buy some more, "
     else
       "Take #{pronoun(number)} down and pass it around, "
+    end
+  end
+
+  def successor(number = 0)
+    if number == 0
+      99
+    else
+      number - 1
     end
   end
 end
