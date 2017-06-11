@@ -18,8 +18,11 @@ class Bottles
   end
 
   def bottle_number_for(number)
-    if number == 0
+    case number
+    when 0
       BottleNumber0
+    when 1
+      BottleNumber1
     else
       BottleNumber
     end.new(number)
@@ -46,19 +49,11 @@ class BottleNumber
   end
 
   def pronoun
-    if number == 1
-      "it"
-    else
-      "one"
-    end
+    "one"
   end
 
   def container
-    if number == 1
-      "bottle"
-    else
-      "bottles"
-    end
+    "bottles"
   end
 end
 
@@ -75,3 +70,14 @@ class BottleNumber0 < BottleNumber
     "no more"
   end
 end
+
+class BottleNumber1 < BottleNumber
+  def pronoun
+    "it"
+  end
+
+  def container
+    "bottle"
+  end
+end
+
